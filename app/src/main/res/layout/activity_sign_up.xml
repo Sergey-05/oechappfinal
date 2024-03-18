@@ -231,7 +231,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_dark"
-            style="@style/body_medium_14"
+            style="@style/body_regular_12"
             android:text="By ticking this box, you agree to our Terms and conditions and private policy"/>
 
     </LinearLayout>

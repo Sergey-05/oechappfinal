@@ -12,11 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -49,7 +45,7 @@ public class SignInActivity extends AppCompatActivity {
         logInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startLogIn = new Intent(SignInActivity.this, MainActivity.class);
+                Intent startLogIn = new Intent(SignInActivity.this, HomeActivity.class);
                 startActivity(startLogIn);
             }
         });
@@ -66,15 +62,17 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText pswField = findViewById(R.id.pswEdit);
-                int inputType = pswField.getInputType();
-                if (inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD){
-                    pswField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    visibilityBnt.setImageResource(R.drawable.eye);
-                }else{
-                    pswField.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    visibilityBnt.setImageResource(R.drawable.eyeslash);
+                if (pswField != null) {
+                    int inputType = pswField.getInputType();
+                    if (inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                        pswField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        visibilityBnt.setImageResource(R.drawable.eyeslash); // Change icon to show hidden password
+                    } else {
+                        pswField.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                        visibilityBnt.setImageResource(R.drawable.eye); // Change icon to show visible password
+                    }
+
                 }
-                pswField.setSelection(pswField.getText().length());
             }
         });
 

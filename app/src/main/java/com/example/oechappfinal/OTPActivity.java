@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
 public class OTPActivity extends AppCompatActivity {
+
+    private String OTPcode;
     TextView resendTimerBtn;
     EditText field1, field2, field3, field4, field5, field6;
     Button setPsw;
@@ -23,6 +25,9 @@ public class OTPActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
+
+        OTPcode = "222222";
+
         resendTimerBtn = findViewById(R.id.resendTimer);
         setPsw = findViewById(R.id.setPsw);
         field1 = findViewById(R.id.field1);
@@ -45,14 +50,24 @@ public class OTPActivity extends AppCompatActivity {
                 //здесь отправка кода
                 resendTimerBtn.setEnabled(false);
                 resendTimerBtn.setTextColor(getColor(R.color.gray_dark));
+                OTPcode = "555555";
                 resendTimer.start();
             }
         });
         setPsw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startNewPsw = new Intent(OTPActivity.this, NewPasswordActivity.class);
-                startActivity(startNewPsw);
+                if(getOTPcode()){
+                    Intent startNewPsw = new Intent(OTPActivity.this, NewPasswordActivity.class);
+                    startActivity(startNewPsw);
+                }else {
+                    field1.setBackgroundResource(R.drawable.otp_field_err);
+                    field2.setBackgroundResource(R.drawable.otp_field_err);
+                    field3.setBackgroundResource(R.drawable.otp_field_err);
+                    field4.setBackgroundResource(R.drawable.otp_field_err);
+                    field5.setBackgroundResource(R.drawable.otp_field_err);
+                    field6.setBackgroundResource(R.drawable.otp_field_err);
+                }
             }
         });
     }
@@ -105,5 +120,10 @@ public class OTPActivity extends AppCompatActivity {
     }
     private String getFieldText(EditText field){
       return field.getText().toString().trim();
+    }
+
+    private boolean getOTPcode(){
+        String code = getFieldText(field1) + getFieldText(field2) + getFieldText(field3) + getFieldText(field4) + getFieldText(field5) + getFieldText(field6);
+        return code.equals(OTPcode);
     }
 }

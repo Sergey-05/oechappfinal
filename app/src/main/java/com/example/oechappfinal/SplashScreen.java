@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
             startActivity(new Intent(this, OnboardingActivity.class));
         } else {
             // Переходим к основной активности
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
         }
         finish(); // Закрываем текущую Activity, чтобы пользователь не мог вернуться к ней
     }

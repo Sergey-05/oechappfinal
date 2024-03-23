@@ -28,6 +28,15 @@
         <item name="fontWeight">700</item>
     </style>
 
+    <style name="BottomNavigationView.Text" parent="Theme.AppCompat.NoActionBar">
+
+        <item name="android:textSize">12sp</item>
+
+    </style>
+
+
+
+
 
 
 

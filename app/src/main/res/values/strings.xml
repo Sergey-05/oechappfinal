@@ -11,6 +11,8 @@
     <string name="btnNext">Next</string>
     <string name="btnSkip">Skip</string>
     <string name="btnSignUp">Sign Up</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

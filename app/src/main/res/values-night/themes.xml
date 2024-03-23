@@ -1,8 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.OECHAPPFinal" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:background">#000D1D</item>
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
@@ -12,4 +13,13 @@
 <!--        <item name="android:windowLightStatusBar">true</item>-->
         <item name="android:windowBackground">@drawable/background_splash_dark</item>
     </style>
+
+    <style name="NavTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:textColorSecondary">@color/white</item>
+
+    </style>
+
+
+
 </resources>

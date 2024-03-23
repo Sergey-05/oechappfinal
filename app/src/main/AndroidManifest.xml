@@ -28,7 +28,8 @@
             android:name=".SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:theme="@style/MainTheme"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"

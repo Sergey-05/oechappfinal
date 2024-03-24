@@ -1,5 +1,8 @@
 package com.example.oechappfinal;
 
+
+
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +19,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleRegistry;
+
+import com.example.oechappfinal.Supabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -24,10 +33,16 @@ public class SignUpActivity extends AppCompatActivity {
     private CheckBox termsCheckBox;
     private Button signUpButton;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+
 
         fullNameEditText = findViewById(R.id.edit_text_full_name);
         phoneNumberEditText = findViewById(R.id.edit_text_phone_number);
@@ -39,8 +54,13 @@ public class SignUpActivity extends AppCompatActivity {
         TextView signin = findViewById(R.id.signIn);
 
 
+        LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
 
 
+        Supabase supabase = new Supabase();
+
+        // Передаем lifecycleScope из активности в метод getData() в Supabase
+        supabase.getData(this);
 
         fullNameEditText.addTextChangedListener(textWatcher);
         phoneNumberEditText.addTextChangedListener(textWatcher);
